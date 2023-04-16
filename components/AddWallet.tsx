@@ -1,13 +1,15 @@
 import { useState } from "react"
 
-export const AddWallet = () => {
+export const AddWallet = (props) => {
     const [ address, setAddress ] = useState<string>('');
     const [ walletList, setWalletList ] = useState<Array<string>>([]);
+
 
     const addWallet = (e) => {
         e.preventDefault();
         const newList = walletList.concat([address]);
         setWalletList(newList);
+        props.setWallets(newList);
         setAddress('');
     }
 

@@ -1,9 +1,9 @@
-export const CurrencyPicker = () => {
+export const CurrencyPicker = ({ setCurrency }: any) => {
     return (
         <div className="flex flex-col gap-4">
             <h2>Pick a Currency</h2>
             <div className="text-black">
-            <select className="p-2">
+            <select className="p-2" onChange={setCurrency}>
                 {currencyCodes.map((currency) => (
                     <option value={currency}>{currency}</option>
                 ))}
