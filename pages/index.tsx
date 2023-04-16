@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function Home() {
 
   const [ wallets, setWallets ] = useState('');
-  const [ currency, setCurrency ] = useState('');
+  const [ currency, setCurrency ] = useState('AED');
   const [ url, setUrl ] = useState('');
 
   const [ loading, setLoading ] = useState(false);
@@ -37,7 +37,7 @@ export default function Home() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              id: '123',
+              id: uuidv4(),
               wallets: wallets.split(",").map(w => w.trim()),
               currency
             }),
