@@ -2,16 +2,7 @@ import { useState } from "react"
 
 export const AddWallet = (props) => {
     const [ address, setAddress ] = useState<string>('');
-    const [ walletList, setWalletList ] = useState<Array<string>>([]);
 
-
-    // const addWallet = (e) => {
-    //     e.preventDefault();
-    //     const newList = walletList.concat([address]);
-    //     setWalletList(newList);
-    //     props.setWallets(newList);
-    //     setAddress('');
-    // }
 
     return (
         <div className="flex flex-col gap-4">
@@ -24,11 +15,6 @@ export const AddWallet = (props) => {
                 value={address}
             />
             </div>
-            {/* <div className="text-white">
-                {walletList.map(address => (
-                    <p>{address}</p>
-                ))}
-            </div> */}
         </div>
     )
 }

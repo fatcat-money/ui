@@ -15,7 +15,7 @@ export const CurrencyPicker = ({ setCurrency }: any) => {
             <div className="text-black">
             <select id="currency-select" className="p-2">
                 {currencyCodes.map((currency) => (
-                    <option value={currency}>{currency}</option>
+                    <option value={currency} key={currency}>{currency}</option>
                 ))}
             </select>
             </div>
