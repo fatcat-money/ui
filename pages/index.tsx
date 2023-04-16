@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function Home() {
 
   const [ wallets, setWallets ] = useState('');
-  const [ currency, setCurrency ] = useState('AED');
+  const [ currency, setCurrency ] = useState('USD');
   const [ url, setUrl ] = useState('');
 
   const [ loading, setLoading ] = useState(false);
