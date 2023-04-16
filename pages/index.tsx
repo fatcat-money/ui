@@ -2,12 +2,15 @@ import { AddWallet } from '@/components/AddWallet'
 import { CurrencyPicker } from '@/components/CurrencyPicker'
 import { useState } from 'react'
 
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
 
   const [ wallets, setWallets ] = useState('');
   const [ currency, setCurrency ] = useState('');
   const [ url, setUrl ] = useState('');
+
+  const [ loading, setLoading ] = useState(false);
 
   return (
     <main className="flex min-h-screen flex-col items-start justify-start gap-4 p-24">
@@ -21,10 +24,12 @@ export default function Home() {
         onClick={ async () => {
 
           console.log(JSON.stringify({
-            id: '123',
+            id: uuidv4(),
             wallets: wallets.split(",").map(w => w.trim()),
             currency
           }))
+
+          setLoading(true);
 
           const response = await fetch("http://65.109.81.69:3001/tax", {
             method: "POST",
@@ -40,6 +45,7 @@ export default function Home() {
           const resJson = await response.json();
           const favaUrl = resJson.url;
           setUrl(favaUrl);
+          setLoading(false);
         }}
       >Calculate</button>
       </div>
@@ -51,6 +57,12 @@ export default function Home() {
          !url.includes('http') && 'An error has occurred'
         }
       </div>
+      
+      {loading &&
+      <div>
+        <video autoPlay loop muted src={"/loading.mp4"}  />
+      </div>
+      }
     </main>
   )
 }

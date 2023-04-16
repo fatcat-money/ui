@@ -15,7 +15,7 @@ export const AddWallet = (props) => {
 
     return (
         <div className="flex flex-col gap-4">
-            <h1>Add a Wallet</h1>
+            <h1>Add one or more wallets</h1>
             <div className="flex flex-row gap-4" /*onSubmit={addWallet}*/>
             <input 
                 className="p-2 px-4 text-black"
