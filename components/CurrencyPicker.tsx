@@ -1,9 +1,19 @@
+import { useEffect } from "react";
+
 export const CurrencyPicker = ({ setCurrency }: any) => {
+
+    useEffect(() => {
+        const e = document.getElementById("currency-select");
+        e.addEventListener("change", function (event) {
+            setCurrency(event.target.value);
+      });
+    })
+
     return (
         <div className="flex flex-col gap-4">
             <h2>Pick a Currency</h2>
             <div className="text-black">
-            <select className="p-2" onChange={setCurrency}>
+            <select id="currency-select" className="p-2">
                 {currencyCodes.map((currency) => (
                     <option value={currency}>{currency}</option>
                 ))}
