@@ -19,7 +19,7 @@ export default function Home() {
       <button
         className="border-2 p-4"
         onClick={ async () => {
-          const response = await fetch("http://65.109.81.69:3000/tax", {
+          const response = await fetch("https://65.109.81.69:3000/tax", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
