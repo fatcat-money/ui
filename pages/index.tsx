@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 export default function Home() {
 
-  const [ wallets, setWallets ] = useState([]);
+  const [ wallets, setWallets ] = useState('');
   const [ currency, setCurrency ] = useState('');
   const [ url, setUrl ] = useState('');
 
@@ -19,11 +19,7 @@ export default function Home() {
       <button
         className="border-2 p-4"
         onClick={ async () => {
-          console.log( JSON.stringify({
-            id: '123',
-            wallets,
-            currency
-          }));
+
           const response = await fetch("http://65.109.81.69:3001/tax", {
             method: "POST",
             headers: {
@@ -31,7 +27,7 @@ export default function Home() {
             },
             body: JSON.stringify({
               id: '123',
-              wallets,
+              wallets: wallets.split(",").map(w => w.trim()),
               currency
             }),
           });
